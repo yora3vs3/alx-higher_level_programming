@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-"""
-Lists all City objects from the database hbtn_0e_101_usa.
-Usage: ./102-relationship_cities_states_list.py <mysql username> /
-                                                <mysql password> /
-                                                <database name>
-"""
+# Adds the State object "Louisiana" to the database hbtn_0e_6_usa.
+# Usage: ./11-model_state_insert.py <mysql username> /
+#                                   <mysql password> /
+#                                   <database name>
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from relationship_state import State
-from relationship_city import City
+from model_state import State
 
 if __name__ == "__main__":
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
@@ -18,5 +15,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for city in session.query(City).order_by(City.id):
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+    louisiana = State(name="Louisiana")
+    session.add(louisiana)
+    session.commit()
+    print(louisiana.id)
