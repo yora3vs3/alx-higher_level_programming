@@ -1,3 +1,3 @@
 #!/bin/bash
-# Send a DELETE request to a given URL and display the response body.
-curl -sX DELETE "$1"
+# This script takes in a URL and displays all HTTP methods the server will accept.
+curl -sI "$1" -X OPTIONS | grep "Allow:" | cut -d':' -f2 | sed 's/ //'
