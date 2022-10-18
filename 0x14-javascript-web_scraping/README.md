@@ -7,7 +7,7 @@ Tasks 📃
 0-readme.js: JavaScript script that reads and prints the contents of a file.
 Usage: ./0-readme.js <file path>.
 1. Write me
-
+3
 1-writeme.js: JavaScript script that writes a string to a file.
 Usage: ./1-writeme.js <file path> <string to write>.
 2. Status code
